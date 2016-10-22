@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="../css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/Reset.css">
+    <link rel="stylesheet" href="../css/list_classify.css">
+</head>
+
+<body>
+    <!-- 侧滑导航根容器 -->
+    <div id="var">
+        <div class="var_bar clearfix">
+            <a href="list_second.html" class="var_bar_src">
+                <div class="var_img">
+                    <img src="../image/1.png" alt="">
+                </div>
+                <p>女装鞋</p>
+            </a>
+            <a href="list_second.html" class="var_bar_src">
+                <div class="var_img">
+                    <img src="../image/2.png" alt="">
+                </div>
+                <p>拖鞋</p>
+            </a>
+            <a href="list_second.html" class="var_bar_src">
+                <div class="var_img">
+                    <img src="../image/3.png" alt="">
+                </div>
+                <p>天猫</p>
+            </a>
+        </div>
+        <div class="var_bar clearfix">
+            <a href="list_second.html" class="var_bar_src">
+                <div class="var_img">
+                    <img src="../image/4.png" alt="">
+                </div>
+                <p>天猫</p>
+            </a>
+            <a href="list_second.html" class="var_bar_src">
+                <div class="var_img">
+                    <img src="../image/5.png" alt="">
+                </div>
+                <p>天猫</p>
+            </a>
+            <a href="list_second.html" class="var_bar_src">
+                <div class="var_img">
+                    <img src="../image/6.png" alt="">
+                </div>
+                <p>天猫</p>
+            </a>
+        </div>
+        <div class="var_bar clearfix">
+            <a href="list_second.html" class="var_bar_src">
+                <div class="var_img">
+                    <img src="../image/7.png" alt="">
+                </div>
+                <p>女装鞋</p>
+            </a>
+            <a href="list_second.html" class="var_bar_src">
+                <div class="var_img">
+                    <img src="../image/8.png" alt="">
+                </div>
+                <p>拖鞋</p>
+            </a>
+            <a href="list_second.html" class="var_bar_src">
+                <div class="var_img">
+                    <img src="../image/9.png" alt="">
+                </div>
+                <p>天猫</p>
+            </a>
+        </div>
+        <div class="var_bar clearfix">
+            <a href="list_second.html" class="var_bar_src">
+                <div class="var_img">
+                    <img src="../image/10.png" alt="">
+                </div>
+                <p>天猫</p>
+            </a>
+            <a href="list_second.html" class="var_bar_src">
+                <div class="var_img">
+                    <img src="../image/11.png" alt="">
+                </div>
+                <p>天猫</p>
+            </a>
+            <a href="list_second.html" class="var_bar_src">
+                <div class="var_img">
+                    <img src="../image/2.png" alt="">
+                </div>
+                <p>天猫</p>
+            </a>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="../js/conmondFunction.js"></script>
+<script type="text/javascript">
+// 每个子页面一进来时,需要将返回顶部按钮隐藏
+// 因为有可能上一页跳过来时,返回顶部按钮是显示的.
+window.parent.$("#topBtn").hide();
+
+// ==============TEST===================
+// 读取子页面href函数,并传入activeIndex参数
+subhrefFn(1);
+
+// ==============TEST===================
+// 子页面跳转函数,供父页面调用
+function subSwiftFn(url){
+    window.location.href = url;
+}
+// ==============TEST===================
+// 页面加载后,调用父页面显示主logo的函数.
+window.onload = function(){
+    parent.showLogoFn();
+}
+// ======================================
+
+</script>
+</html>

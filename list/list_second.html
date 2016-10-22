@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>二级列表</title>
+    <link href="../css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/list_second.css">
+    <link rel="stylesheet" href="../css/Reset.css">
+</head>
+
+<body>
+    <!-- 内容 -->
+    <div id="two_reclafy_wrap">
+        <!-- 第一广告位 -->
+        <div id="two_reclafy">
+            <span>popl</span><a href="list_insideOne.html">更多产品 >></a>
+            <div id="two_reclafy_botm" class=".clearfix">
+                <a href="list_insideOne.html"><img src="../image/poll_2.jpg" alt=""></a>
+                <a href="list_insideOne.html"><img src="../image/poll_12.jpg" alt=""></a>
+                <a href="list_insideOne.html"><img src="../image/poll_6.jpg" alt=""></a>
+            </div>
+        </div>
+        <hr>
+        <!-- 第二广告位 -->
+        <div id="two_reclafy">
+            <span>圆领</span><a href="list_insideOne.html">更多产品 >></a>
+            <div id="two_reclafy_botm">
+                <a href="list_insideOne.html"><img src="../image/neck_3.jpg" alt=""></a>
+                <a href="list_insideOne.html"><img src="../image/neck_6.jpg" alt=""></a>
+                <a href="list_insideOne.html"><img src="../image/neck_18.jpg" alt=""></a>
+            </div>
+        </div>
+        <hr>
+        <!-- 第三广告位 -->
+        <div id="two_reclafy">
+            <span>长袖</span><a href="list_insideOne.html">更多产品 >></a>
+            <div id="two_reclafy_botm">
+                <a href="list_insideOne.html"><img src="../image/longs_1.jpg" alt=""></a>
+                <a href="list_insideOne.html"><img src="../image/longs_2.jpg" alt=""></a>
+                <a href="list_insideOne.html"><img src="../image/longs_7.jpg" alt=""></a>
+            </div>
+        </div>
+        <hr>
+        <!-- 第四广告位 -->
+        <div id="two_reclafy">
+            <span>长袖</span><a href="">更多产品 >></a>
+            <div id="two_reclafy_botm">
+                <a href="list_insideOne.html"><img src="../image/suit_1.jpg" alt=""></a>
+                <a href="list_insideOne.html"><img src="../image/suit_3.jpg" alt=""></a>
+                <a href="list_insideOne.html"><img src="../image/suit_5.jpg" alt=""></a>
+            </div>
+        </div>
+        <hr>
+        <!-- 第五广告位 -->
+        <div id="two_reclafy">
+            <span>衬衫</span><a href="">更多产品 >></a>
+            <div id="two_reclafy_botm">
+                <a href="list_insideOne.html"><img src="../image/blou_1.jpg" alt=""></a>
+                <a href="list_insideOne.html"><img src="../image/blou_8.jpg" alt=""></a>
+                <a href="list_insideOne.html"><img src="../image/blou_10.jpg" alt=""></a>
+            </div>
+        </div>
+        <hr>
+        <!-- 第六广告位 -->
+        <div id="two_reclafy">
+            <span>针织衣</span><a href="">更多产品 >></a>
+            <div id="two_reclafy_botm">
+                <a href="list_insideOne.html"><img src="../image/knitw_9.jpg" alt=""></a>
+                <a href="list_insideOne.html"><img src="../image/knitw_6.jpg" alt=""></a>
+                <a href="list_insideOne.html"><img src="../image/knitw_1.jpg" alt=""></a>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="../js/mui.min.js"></script>
+<script type="text/javascript" src="../js/conmondFunction.js"></script>
+<script type="text/javascript">
+
+
+// ==============TEST===================
+// 页面加载后,调用父页面出现返回按的函数.
+window.onload = function(){
+    parent.hideLogoFn();
+}
+
+// ===================TEST============================
+// iframe页面scroll事件
+// ios端为什么不加这部分,主页面也可以显隐返回顶部按钮？？
+// $(parent.window).scroll(function(e) {
+//     if ($(window.parent.document).scrollTop() > 300) {
+//         parent.showBackFn();
+//     } else {
+//         parent.hideBackFn();
+//     }
+// })
+
+// ==============TEST===================
+// ios端iframe页面的返回顶部函数,供父页面调用
+// function toTopFn(){
+//     $(window.parent.document).scrollTop(0);
+//     // PC端演示时的返回顶部函数
+//     $(document).scrollTop(0);
+// }
+
+
+// 兼容PC端的scroll事件
+$(window).scroll(function(e) {
+    if ($(document).scrollTop() > 300) {
+        parent.showBackFn();
+    } else {
+        parent.hideBackFn();
+    }
+});
+
+// 添加滚动.times为回到顶部所用的时间参数
+function toTopFn(times) {
+    var topval = $(window.parent.document).scrollTop() || $(document).scrollTop();
+    var speed = topval/times;
+    (function moveFn() {
+        topval -= speed;
+        if (topval < 0) {
+            $(window.parent.document).scrollTop(0);
+            // 兼容PC端的返回顶部函数
+            $(document).scrollTop(0);
+            return false;
+        } else {
+            $(window.parent.document).scrollTop(topval);
+            // 兼容PC端的返回顶部函数
+            $(document).scrollTop(topval);
+            window.requestAnimationFrame(moveFn);
+        }
+    })();
+}
+
+// ==============TEST===================
+// 读取子页面href函数(各导航首页的地址,二级以后的页面地址不需要读取)
+// subhrefFn();
+
+// ==============TEST===================
+// 子页面跳转函数,供父页面调用
+function subSwiftFn(url){
+    window.location.href = url;
+}
+
+// ==============TEST==========================================================
+// 模拟点击返回键(mui的back事件是tap而不是click,所以不能用.click来模拟！！！！)
+// 找不到模拟tap的时间,折衷处理：不返回上一级,直接返回本导航栏的首页！
+function clickBackFn(){
+    // $("body>a")[0].click();
+    window.location.href = sessionStorage.subhref;
+}
+
+// =====================================
+</script>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<!--这类名...害人不浅...-->
+<html class="feedback">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/feedback.css"/>
+		<link rel="stylesheet" href="../css/Reset.css">
+		<style type="text/css">
+		
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<button id="submit" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">发送</button>
+			<h1 class="mui-title">问题反馈</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<div class="mui-inline">问题和意见</div>
+				<a class="mui-pull-right mui-inline" href="#popover">
+					快捷输入
+					<span class="mui-icon mui-icon-arrowdown"></span>
+				</a>
+				<!--快捷输入具体内容，开发者可自己替换常用语-->
+				<div id="popover" class="mui-popover">
+					<div class="mui-popover-arrow"></div>
+					<div class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<ul class="mui-table-view">
+								<!--仅流应用环境下显示-->
+								<li class="mui-table-view-cell stream">
+									<a href="#">桌面快捷方式创建失败</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a href="#">界面显示错乱</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a href="#">启动缓慢，卡出翔了</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a href="#">偶发性崩溃</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a href="#">UI无法直视，丑哭了</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="row mui-input-row">
+				<textarea id='question' class="mui-input-clear question" placeholder="请详细描述你的问题和意见..."></textarea>
+			</div>
+			<p>图片(选填,提供问题截图,总大小10M以下)</p>
+			<div id='image-list' class="row image-list">
+				<!-- 上传图片 -->
+				<!-- <input type="file" name="" id="file" value="" accept="image/*" style="display: none;" />
+				<img src=""> -->
+			</div>
+			<p>QQ/邮箱</p>
+			<div class="mui-input-row">
+				<input id='contact' type="text" class="mui-input-clear contact" placeholder="(选填,方便我们联系你 )" />
+			</div>
+			<div class="mui-content-padded">
+				<div class="mui-inline">应用评分</div>
+				<div class="icons mui-inline" style="margin-left: 6px;">
+					<i data-index="1" class="mui-icon mui-icon-star"></i>
+					<i data-index="2" class="mui-icon mui-icon-star"></i>
+					<i data-index="3" class="mui-icon mui-icon-star"></i>
+					<i data-index="4" class="mui-icon mui-icon-star"></i>
+					<i data-index="5" class="mui-icon mui-icon-star"></i>
+				</div>
+			</div><br />
+		</div>
+		<script src="../js/jquery-3.1.0.min.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/feedback.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui('.mui-scroll-wrapper').scroll();
+
+			// 上传图片..
+			// var file = document.getElementById("file");
+			// var picBox = document.getElementById("picBox");
+			// $("#image-list").on("tap",function() {
+			// 	file.click();
+
+			// })
+
+			// file.onchange = function() {
+			// 	var files = this.files;
+			// 	var url = window.URL || window.webkitURL;
+			// 	picBox.innerHTML = "";
+			// 	if(url) {
+			// 		var src = url.createObjectURL(files[0]);
+			// 		var img = document.getElementById("image-list").getElementsByTapName("img")[0];
+			// 		img.src = src;
+			// 		picBox.appendChild(img);
+			// 	}
+			// }
+		</script>
+	</body>
+
+</html>

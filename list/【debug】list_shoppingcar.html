@@ -1,0 +1,319 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="../css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/Reset.css">
+    <style type="text/css">
+        .mui-content {
+            width: 100%;
+            /*不能100%高度,需要由内容撑开*/
+            /*height: 100%;*/
+            background: white;
+            /*---由于内嵌页面初始化的bottom在手机实测中无效,所以直接把距离增加到这里---*/
+            padding-bottom: 60px;
+        }
+        .oheader {
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            padding: 3% 0;
+        }
+        .ocontent {
+            width: 92%;
+            margin: 0 auto;
+        }
+        .ocontent .olis {
+            width: 100%;
+            overflow: hidden;
+            border-bottom: 8px solid gainsboro;
+            padding: 3% 3% 0 3%;
+        }
+        
+        .ocontent .olis div {
+            float: left;
+        }
+        
+        .ocontent .olis div:nth-of-type(1) {
+            width: 25%;
+        }
+        
+        .ocontent .olis div:nth-of-type(2) {
+            width: 69%;
+            margin-left: 6%;
+        }
+        
+        .ocontent .olis div p {
+            font-size: 18px;
+            color: #716464;
+            margin: 5% 0 2% 0;
+            padding: 0;
+        }
+        
+        .ocontent .olis div .onumber {
+            text-align: right;
+        }
+        
+        .ocontent .olis div span {
+            font-size: 15px;
+            color: #64646d;
+        }
+        
+        .ocontent .olis div .oicon {
+            font-size: 33px;
+        }
+        
+        img {
+            width: 100%;
+        }
+        
+        .oclearing {
+            width: 90%;
+            margin: 3% auto;
+        }
+        
+        .oclearing p {
+            font-size: 15px;
+            margin: 4%;
+        }
+        
+        .oclearing p span:nth-of-type(1) {
+            font-size: 18px;
+        }
+        
+        .oclearing p span:nth-of-type(2) {
+            font-size: 23px;
+            color: #bf502d;
+        }
+        
+        .oclearing section {
+            width: 100%;
+        }
+        
+        .oclearing section button {
+            background: #ba5440;
+            width: 100%;
+            margin-top: 4%;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mui-content">
+        <div class="oheader">
+            购物车
+        </div>
+        <div class="ocontent">
+            <div class="olis">
+                <a href="###">
+                    <div class="oimg"><img src="../image/red_wine_1.jpg" alt="" /></div>
+                    <div class="mui-collapse-content">
+                        <p class="oname">法国王子红葡萄酒</p>
+                        <span>￥<span class="oprice">128</span>.00</span>
+                        <p class="onumber">
+                            <section class="mui-numbox" data-numbox-min='0'>
+                                <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+                                <input class="mui-numbox-input" type="number" value="1" />
+                                <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+                            </section>
+                            <span class="mui-icon mui-icon-trash mui-pull-right oicon del"></span>
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <div class="olis">
+                <a href="###">
+                    <div class="oimg"><img src="../image/clo_shoes_9.jpg" alt="" /></div>
+                    <div class="mui-collapse-content">
+                        <p class="oname">都市超跑9号 运动鞋</p>
+                        <p class="osize">尺码:40码</p>
+                        <span>￥<span class="oprice">228</span>.00</span>
+                        <p class="onumber">
+                            <section class="mui-numbox" data-numbox-min='0'>
+                                <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+                                <input class="mui-numbox-input" type="number" value="1" />
+                                <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+                            </section>
+                            <span class="mui-icon mui-icon-trash mui-pull-right oicon del"></span>
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <div class="oclearing">
+                <p>共<span class="tolnum">0</span>件商品</p>
+                <p>
+                    <span>实付款:</span>
+                    <span class="mui-pull-right tolprice">￥0.00</span>
+                </p>
+                <section>
+                    <button type="button" class="mui-btn mui-btn-danger">结算</button>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../js/jquery-3.1.0.min.js"></script>
+<!-- 放到后面js动态地引入 -->
+<!-- <script src="js/mui.min.js"></script> -->
+<script type="text/javascript">
+// ========================================================================
+// ========================================================================
+// 购物车页面生成程序(从localStorage里面读取)
+// 新建的购物车商品也需要绑定所有的相关事件(甚至包括mui.js中的事件,无法绑定mui.js中的默认事件)
+
+// 加载即读取storage数据,拼接成dom
+DomFn();
+function DomFn() {
+    if (localStorage.getItem("item")) {
+        // 如果读取到有本地数据,则进行dom操作.
+        var arr = localStorage.getItem("item").split("**");
+        // 遍历各商品数据列表.
+        for (var i = 0; i < arr.length - 1; i++) {
+            var data = JSON.parse(arr[i]);
+            // 确认商品有没有尺码这参数.
+            var size = data.size ? "<p class='osize'>" + data.size + "</p>" : "";
+            // 建立新的结点
+            var $newDom = $('<div class="olis"><a href="###"><div class="oimg"><img src="'+ data.img +'" alt="" /></div> <div class="mui-collapse-content"><p class="oname">'+data.name+'</p> ' + size + '<span>￥<span class="oprice">'+ data.price +'</span></span> <p class="onumber"> <section class="mui-numbox"  data-numbox-min="0"><button class="mui-btn mui-numbox-btn-minus" type="button">-</button> <input class="mui-numbox-input" type="number" value="'+ data.num +'" /><button class="mui-btn mui-numbox-btn-plus" type="button">+</button> </section> <span class="mui-icon mui-icon-trash mui-pull-right oicon del"></span> </p> </div> </a> </div>');
+            $newDom.insertBefore($(".oclearing"));    
+        }
+        // 重新读取商品数据
+        shopdataFn();
+        
+        // 创建script标签,准备引入mui.min.js以进行初始化.
+        var muiInitial = document.createElement("script");
+        muiInitial.setAttribute("src", "js/mui.min.js");
+        // 引入script标签. 因为购物车每次进入都是由js读取数据写入的,可先写入DOM然后再引入mui.js
+        document.body.appendChild(muiInitial);
+
+        // input事件绑定.
+        inputEventFn();
+        // 删除事件绑定
+        delFn();
+        // 结算事件绑定
+        checkoutFn();
+
+    } else {
+        console.log("shopcar is empty！");
+        // 生成空的购物车页面---？？
+    }
+}
+
+// 在购物车里更改了数量,直接重新写入storage
+function recoverFn(){
+    var items = "";
+    //如果当前页面存在商品列表,则进行重写,否则直接给空值.
+    if($(".olis")[0]){
+        $(".olis").each(function(){
+            var item = {
+                "name": "",
+                "price": "",
+                "num": "",
+                "img": "",
+                "size": false
+            };
+            // 获取对应的数据
+            item.name = $(this).find(".oname").html();
+            item.price = $(this).find(".oprice").html();
+            item.num = $(this).find("input").val();
+            item.img = $(this).find(".oimg>img").attr("src");
+            if($(".osize")){
+                item.size = $(this).find(".osize").html();
+            }
+            // 这里需要+=,因为要累加！
+            items += JSON.stringify(item)+"**";
+        });
+    }
+    localStorage.setItem("item", items);
+}
+
+// ========================================================================
+// 计算商品数据函数（商品件数、总价格）
+function shopdataFn() {
+    // 获取商品列表
+    var $olis = $(".olis");
+    var tolnum = 0;
+    var tolprice = 0;
+    // demo
+    $olis.each(function() {
+        // 获取单价
+        var price = parseInt($(this).find(".oprice").html());
+        // 获取数量
+        var num = parseInt($(this).find("input").val());
+        // 总价计算
+        tolprice += price * num;
+        // 总数量
+        tolnum += num;
+    });
+    var $oclearing = $(".oclearing");
+    $oclearing.find(".tolprice").html("￥" + tolprice + ".00");
+    $oclearing.find(".tolnum").html(tolnum || 0);
+    // 放入本地储存,用作购物车数量小图标同步
+    localStorage.setItem("shopNum", tolnum || 0);
+    // console.count("shopdataFn调用次数");
+    // console.trace();
+}
+
+// ========================================================================
+// 删除商品列表函数
+function delFn() {
+    $(".del").on("click", function() {
+        $(this).parents(".olis").remove();
+        // 重新计算商品数据
+        shopdataFn();
+        // 重新获取商品信息,覆盖后台信息
+        recoverFn();
+    // console.count("delFn调用次数");
+
+    });
+}
+
+// =======================================================================
+// input事件绑定函数
+function inputEventFn(){
+    $("section").find("input").on("change",function(){
+        // shopdataFn();
+        // recoverFn();
+        // 现在有个bug:有时候点击最后一件商品减到0时,会把所有的商品都删除掉！(点击延时问题！神坑！)
+        // if($(this).val()==0){
+        //     $(this).parent().next()[0].click();
+        // }
+
+        // 更正确、简便的写法(shopdataFn和recover应该写在最后,否则会读取到num=0的商品列表结构):
+        if($(this).val()==0){
+            // $(this).parents(".olis").remove();
+            // 给个延时(>2ms)之后,即使是click也没有问题了
+            $(this).parents(".olis").hide(2,function(){
+                $(this).remove();
+                shopdataFn();
+                recoverFn();
+            });
+        }
+        // shopdataFn();
+        // recoverFn();
+    });
+}
+
+// =======================================================================
+// 结算函数,点击结算,所有商品清零.
+function checkoutFn(){
+       $(".oclearing").find("button").on("click",function(){
+           $(".olis").remove();
+           shopdataFn();
+           recoverFn();
+       });
+
+//	将on("click")改为on("tap")就可以了？为什么？
+
+// 到点击事件的延迟问题！！！click的延时很长,导致"结算"按钮往上跳之后,click延时后起作用,以至于"结算被点击".
+// 手机端一定要注意"点透"和"点击延时"问题,移动端点击尽量用"tap"或"touchstart",延时较短.
+}
+
+
+
+</script>
+
+</html>

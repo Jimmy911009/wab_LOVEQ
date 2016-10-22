@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="../css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/Reset.css">
+    <style type="text/css">
+    .mui-content {
+        background: white;
+        padding-bottom: 10px;
+    }
+    
+    .ocontent img {
+        width: 100%;
+    }
+    
+    .ocontent {
+        width: 92%;
+        margin: 0 auto;
+    }
+    
+    .otop section {
+        font-size: 18px;
+        color: gray;
+        margin: 6px 0;
+    }
+    
+    .otop p {
+        margin: 5px 0;
+    }
+    
+    .otop span {
+        color: red;
+        display: inline-block;
+        padding: 20px 0;
+    }
+    
+    .obody {
+        width: 100%;
+    }
+    
+    .obody section {
+        width: 100%;
+        /*清浮动*/
+        overflow: hidden;
+        border-bottom: 1px solid gainsboro;
+        border-top: 1px solid gainsboro;
+        padding: 3% 0;
+    }
+    
+    .obody .oleft {
+        float: left;
+        width: 50%;
+    }
+    
+    .obody .oleft .mui-btn-warning {
+        margin-top: 10%;
+        margin-left: 25%;
+    }
+    
+    .obody .olis {
+        width: 100%;
+        overflow: hidden;
+        list-style: none;
+        padding: 0;
+    }
+    
+    .obody .olis li {
+        float: left;
+        width: 33%;
+        color: grey;
+        text-align: center;
+    }
+    
+    .obody .olis li:nth-of-type(2) {
+        border-left: 1px solid gainsboro;
+        border-right: 1px solid gainsboro;
+    }
+    
+    .obody h4,
+    .obody h5 {
+        text-align: center;
+        padding: 1% 0;
+    }
+    
+    .obody p {
+        width: 100%;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="mui-content">
+        <!--轮播图-->
+        <div id="slider" class="mui-slider">
+            <div class="mui-slider-group mui-slider-loop">
+                <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="#">
+                        <img src="../image/cctn_3.png">
+                    </a>
+                </div>
+                <!-- 第一张 -->
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="../image/Z.png">
+                    </a>
+                </div>
+                <!-- 第二张 -->
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="../image/cctn_3.png">
+                    </a>
+                </div>
+                <!-- 第三张 -->
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="../image/cctn_3.png">
+                    </a>
+                </div>
+                <!-- 第四张 -->
+                <div class="mui-slider-item">
+                    <a href="#">
+                        <img src="../image/cctn_3.png">
+                    </a>
+                </div>
+                <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="#">
+                        <img src="../image/Z.png">
+                    </a>
+                </div>
+            </div>
+            <div class="mui-slider-indicator">
+                <div class="mui-indicator mui-active"></div>
+                <div class="mui-indicator"></div>
+                <div class="mui-indicator"></div>
+                <div class="mui-indicator"></div>
+            </div>
+        </div>
+        <!--正文内容-->
+        <div class="ocontent">
+            <!--商品栏-->
+            <div class="otop">
+                <section id="name">一些事一些情腌子姜</section>
+                <section>￥<span id="price">48.00</span></section>
+                <p>状态 热销中</p>
+                <p>本产品为纯手工制作食品，谭爸爸正夜以继日赶货中，即日购买最快于两天后按订单先后顺序发货，请F们耐心等待哦！</p>
+                <span>离结束还剩:222:41:59</span>
+            </div>
+            <!--商品详情-->
+            <div class="obody">
+                <section>
+                    <div class="oleft">
+                        <p>数量</p>
+                        <div class="mui-numbox" data-numbox-min='1'>
+                            <!-- "-"按钮，点击可减小当前数值 -->
+                            <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+                            <input class="mui-numbox-input" type="number" value="1" id="num" />
+                            <!-- "+"按钮，点击可增大当前数值 -->
+                            <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+                        </div>
+                    </div>
+                    <div class="oleft">
+                        <button type="button" class="mui-btn mui-btn-warning" id="shopcar">加入购物车</button>
+                    </div>
+                </section>
+                <ul class="olis">
+                    <li>图片详情</li>
+                    <li>规格参数</li>
+                    <li>商品评价</li>
+                </ul>
+                <h4>百分百手工腌食会给你带来怎样的体验？</h4>
+                <h5>鲜：鲜美多汁，鲜得爽口</h5>
+                <h5>脆：一口咬下去，嘎嘣脆</h5>
+                <h5>甜：淡淡清甜，沁人心脾</h5>
+                <h5>香：蔬果香四溢，唇齿留香</h5>
+                <p>
+                    <img src="../image/J.jpg" />
+                </p>
+                <h4>百分百纯手工制作</h4>
+                <h5>让人停不下嘴的腌子姜出自谭爸爸的纯手工制作</h5>
+                <h5>擦洗；切片；冷藏软化；反复清洗；腌制</h5>
+                <h5>直至子姜的脆度和辣度达到完美均衡</h5>
+                <h5>每个细节都蕴含机器无法诠释的真诚</h5>
+                <p> <img src="../image/J2.jpg" /></p>
+                <h4>健康美味从讲究食材开始</h4>
+                <h5>选取肉质结实、姜芽鲜嫩的优质子姜</h5>
+                <h5>爽口脆嫩，无渣水分多，味道极好</h5>
+                <p><img src="../image/J3.jpg" alt="" /></p>
+                <h5>子姜，附有姜芽，既是很好的佐料也是很好的医疗保健品</h5>
+                <h5>古人称之为“蔬中拂土”。</h5>
+                <p><img src="../image/J4.jpg" alt="" /></p>
+                <h4>办公室白领的必备品：子姜有四大功效！</h4>
+                <p>
+                    <img src="../image/Z1.jpg" />
+                </p>
+                <h6>减肥功效--子姜的热量较低，味性辛，能燃烧脂肪，有助于达到减肥目的。</h6>
+                <h6>抗衰老--子姜含有姜辣素，进入体内后能产生一种抗氧化本酶，功效更胜于维生素E。</h6>
+                <h6>促进消化--子姜能促使胃液的分泌增加肠道蠕动，有帮助消化的效果。子姜辣味也可增进食欲，健胃消食。</h6>
+                <h6>缓解感冒--子姜性辛，驱寒祛湿，能防治空调病，对风寒感冒者有帮助治疗的效果。</h6>
+                <p><img src="../image/J5.jpg" alt="" /></p>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../js/jquery-3.1.0.min.js"></script>
+<script src="../js/mui.min.js"></script>
+<script type="text/javascript" src="../js/conmondFunction.js"></script>
+<script type="text/javascript">
+// 数据写入===============================================================
+// 先获取当前已保存的数据(全部商品保存在key(item)中)
+$("#shopcar").on("click", function() {
+    if (sessionStorage.login) {
+        // var items = sessionStorage.getItem("item") ? sessionStorage.getItem("item") : "";
+        // var items = sessionStorage.getItem("item") || "";
+        // 用一个临时本地储存来保存之前的购物信息
+        var tmp = sessionStorage.getItem("item") || "";
+        // 建立json数据格式,获取数据
+        var item = {
+            "name": "",
+            "price": "",
+            "num": "",
+            "img": "",
+            "size": false
+        };
+        // 数据采集
+        item.name = $("#name").html();
+        item.price = parseInt($("#price").html());
+        item.num = $("#num").val();
+        item.img = $("img").eq(0).attr("src");
+        if ($("#size")) {
+            item.size = $("#size").html();
+        }
+        // 存储本次提交购物车的json数据的字符串
+        var itemstr = JSON.stringify(item);
+        // 用**来隔开各个数据
+        sessionStorage.setItem("item", tmp + itemstr + "**");
+        // 后台存储购物信息(括号里面为回调函数：读取商品总数并写入本地储存.)
+        shopDataFn(shopNumFn);
+    } else {
+        // 需要使用window.open,利用其_parent参数,
+        // 如果使用window.location.href,则会在内嵌页面中打开;
+        window.open("../index_register.html", "_parent");
+    }
+});
+
+// 模拟点击加入购物车函数,供父页面调用
+function clickShopcarFn() {
+    $("#shopcar")[0].click();
+}
+
+// 返回顶部部件.
+// toTopFn();
+// showHideFn();
+
+
+// ===================TEST============================
+// ios端iframe页面scroll事件：
+// $(parent.window).scroll()/$(parent.document).scroll()
+$(parent.window).scroll(function(e) {
+    if ($(window.parent.document).scrollTop() > 300) {
+        parent.showBackFn();
+    } else {
+        parent.hideBackFn();
+    }
+});
+
+// ios端iframe页面的返回顶部函数,供父页面调用
+// function toTopFn(){
+//     $(window.parent.document).scrollTop(0);
+//     // PC端演示时的返回顶部函数
+//     $(document).scrollTop(0);
+// }
+
+// 添加滚动.times为回到顶部所用的时间参数
+function toTopFn(times) {
+    var topval = $(window.parent.document).scrollTop() || $(document).scrollTop();
+    var speed = topval/times;
+    (function moveFn() {
+        topval -= speed;
+        if (topval < 0) {
+            $(window.parent.document).scrollTop(0);
+            // 兼容PC端的返回顶部函数
+            $(document).scrollTop(0);
+            return false;
+        } else {
+            $(window.parent.document).scrollTop(topval);
+            // 兼容PC端的返回顶部函数
+            $(document).scrollTop(topval);
+            window.requestAnimationFrame(moveFn);
+        }
+    })();
+}
+
+// 兼容PC端的scroll事件
+$(window).scroll(function(e) {
+    if ($(document).scrollTop() > 300) {
+        parent.showBackFn();
+    } else {
+        parent.hideBackFn();
+    }
+});
+</script>
+
+</html>

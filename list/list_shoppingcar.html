@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="../css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/Reset.css">
+    <link href="../fonts/iconfont.css" rel="stylesheet"/>
+
+    <style type="text/css">
+        .mui-content {
+            width: 100%;
+            /*不能100%高度,需要由内容撑开*/
+            /*height: 100%;*/
+            background: white;
+            /*---由于内嵌页面初始化的bottom在手机实测中无效,所以直接把距离增加到这里---*/
+            padding-bottom: 60px;
+        }
+
+        /*没有商品时的遮罩层*/
+        .mui-content .cover{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            z-index: 3;
+            text-align: center;
+        } 
+        .mui-content .cover .car{
+            width: 54%;
+            height: 65%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+
+            font-size: 160px;
+            line-height: 200px;
+            color: #8f8f94;
+
+            padding-right: 4%;
+        }
+
+        .mui-content .one{
+            padding-top: 90%;
+            padding-bottom: 5px;
+
+            font-size: 20px;
+        }
+
+
+        .oheader {
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            padding: 3% 0;
+        }
+        .ocontent {
+            width: 92%;
+            margin: 0 auto;
+        }
+        .ocontent .olis {
+            width: 100%;
+            overflow: hidden;
+            border-bottom: 8px solid gainsboro;
+            padding: 3% 3% 0 3%;
+        }
+        
+        .ocontent .olis div {
+            float: left;
+        }
+        
+        .ocontent .olis div:nth-of-type(1) {
+            width: 25%;
+        }
+        
+        .ocontent .olis div:nth-of-type(2) {
+            width: 69%;
+            margin-left: 6%;
+        }
+        
+        .ocontent .olis div p {
+            font-size: 18px;
+            color: #716464;
+            margin: 5% 0 2% 0;
+            padding: 0;
+        }
+        
+        .ocontent .olis div .onumber {
+            text-align: right;
+        }
+        
+        .ocontent .olis div span {
+            font-size: 15px;
+            color: #64646d;
+        }
+        
+        .ocontent .olis div .oicon {
+            font-size: 33px;
+        }
+        
+        img {
+            width: 100%;
+        }
+        
+        .oclearing {
+            width: 90%;
+            margin: 3% auto;
+        }
+        
+        .oclearing p {
+            font-size: 15px;
+            margin: 4%;
+        }
+        
+        .oclearing p span:nth-of-type(1) {
+            font-size: 18px;
+        }
+        
+        .oclearing p span:nth-of-type(2) {
+            font-size: 23px;
+            color: #bf502d;
+        }
+        
+        .oclearing section {
+            width: 100%;
+        }
+        
+        .oclearing section button {
+            background: #ba5440;
+            width: 100%;
+            margin-top: 4%;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mui-content">
+        <div class="cover">
+            <div class="car iconfont">&#xe601;</div>
+            <p class="one">购物车还没有商品</p>
+            <p class="two">赶紧去逛逛吧！加一些商品~</p>
+        </div>
+        <div class="oheader">购物车</div> 
+        <div class="ocontent">
+            <div class="oclearing">
+                <p>共<span class="tolnum">0</span>件商品</p>
+                <p>
+                    <span>实付款:</span>
+                    <span class="mui-pull-right tolprice">￥0.00</span>
+                </p>
+                <section>
+                    <button type="button" class="mui-btn mui-btn-danger">结算</button>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../js/jquery-3.1.0.min.js"></script>
+<!-- 放到后面js动态地引入 -->
+<!-- <script src="../js/mui.min.js"></script> -->
+<script type="text/javascript" src="../js/shoppingcar.js"></script>
+<script type="text/javascript" src="../js/conmondFunction.js"></script>
+<script type="text/javascript">
+// 每个子页面一进来时,需要将返回顶部按钮隐藏
+// 因为有可能上一页跳过来时,返回顶部按钮是显示的.
+window.parent.$("#topBtn").hide();
+
+// ==============TEST===================
+// 读取子页面href函数,并传入activeIndex参数
+subhrefFn(2);
+
+// ==============TEST===================
+// 子页面跳转函数,供父页面调用.
+function subSwiftFn(url){
+    window.location.href = url;
+}
+// ==============TEST===================
+// 页面加载后,调用父页面显示主logo的函数.
+window.onload = function(){
+    parent.showLogoFn();
+}
+// ======================================
+ 
+// ========================================
+// 遮罩层函数
+coverFn();
+// ========================================
+// 加载即读取storage数据,拼接dom,渲染出页面
+DomFn();
+</script>
+</html>

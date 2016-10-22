@@ -1,0 +1,20 @@
+#var {
+    width: 85%;
+    position: relative;
+    margin:0 auto;
+}
+.var_bar_src{
+	float: left;
+    width: 33%;
+    position: relative;
+    margin-top: 5%;}
+.var_bar_src embed{
+    border-radius: 50%;
+    border: 1px solid #9D9494;;
+    width: 69%;
+    margin-left: 13%;
+}
+.var_bar_src p{
+    text-align: center;
+    font-size: 21px;
+}

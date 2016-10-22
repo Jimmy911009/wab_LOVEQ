@@ -1,0 +1,18 @@
+ .ns-box {
+	position: fixed;
+	z-index: 50;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: #8f8f94;
+    padding: 10px 5px 0px;
+    line-height: 1.5;
+    display: none; 
+    font-family: "微软雅黑";
+}
+
+ .ns-box p{
+ 	color: white;
+ 	font-size: 16px;
+ }

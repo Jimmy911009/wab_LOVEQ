@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>登录界面</title>
+    <link rel="stylesheet" href="css/Reset.css">
+    <link rel="stylesheet" href="css/register.css">
+    <!-- 弹框样式表 -->
+    <link rel="stylesheet" href="css/noteBox.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="enter_top">
+            <a href="index.html" class="enter_delete">
+                <!-- <embed src="../css/x.svg" width="20%" height="20%" /> -->
+            </a>
+            <a href="###" class="enter_in">用户</a>
+            <a href="login.html" class="login_in">注册</a>
+        </div>
+        <div id="enter_conten">
+            <form action="" method="">
+                <input type="text" class="name" placeholder="请输入用户名">
+                <input type="password" class="password" placeholder="请输入密码">
+                <a href="###" class="remable">忘记密码?</a>
+                <input type="button" value="登录" class="btn">
+                <div class="name_img"></div>
+                <div class="password_img"></div>
+            </form>
+        </div>
+        <div class="ns-box">
+            <div class="ns-box-inner">
+                <p>账号或密码错误</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="js/conmondFunction.js"></script>
+<script type="text/javascript">
+//用户名
+var $text = $(".name").eq(0);
+var inputa = document.getElementsByTagName('input');
+
+// 默认存在的用户(用localhost来记录账号、密码)
+localStorage["123"] = "123";
+
+// 添加按钮事件
+// 发送请求
+inputa[2].onclick = function() {
+    //获取用户名
+    var numeVal = inputa[0].value;
+    var pwdVal = inputa[1].value;
+
+    // 如果存在此用户且密码正确,则登陆成功.
+    if (localStorage[numeVal] && pwdVal == localStorage[numeVal]) {
+        // 初始化登陆状态
+        sessionStorage.login = true;
+        sessionStorage.username = numeVal;
+        // 使用localStorage[username+Item]来储存商品列表历史.
+        // 将特定用户购物信息存入session.item.
+        sessionStorage.item = localStorage[numeVal+'Item'] || "";
+        // 读取商品数量，并写入本地储存的函数.
+        shopNumFn();
+        // 跳转初始化：设置挑起页面、导航栏激活状态.
+        sessionStorage.subhref = "list/myCount.html";
+        sessionStorage.activeIndex = 3;
+        window.location.href = "index.html";
+    } else {
+        // 登陆失败柔性提示弹框
+        showNoteBoxFn();
+    }
+}
+</script>
+
+</html>

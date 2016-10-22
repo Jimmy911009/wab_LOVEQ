@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/mui.min.css" rel="stylesheet" />
+    <title>详情页</title>
+    <style type="text/css">
+        header .mui-title a {
+            color: inherit;
+            display: inline-block;
+            width: 25%;
+        }
+        #onav .olis {
+            width: 2%;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="#offCanvasSide" id="close"></a>
+        <h1 class="mui-title">
+				<a href="###">商品</a>
+				<a href="###">详情</a>
+				<a href="###">评论</a>
+			</h1>
+        <a class="mui-icon mui-action-menu iconfont icon-gouwuche mui-pull-right" href="#offCanvasSide" style="color: gray;"></a>
+    </header>
+    <nav class="mui-bar mui-bar-tab" id="onav">
+        <a class="mui-tab-item">
+            <span class="mui-icon" style="color: red;font-size: 15px;padding: 0;font-weight: bold;margin: 0;">￥0</span>
+            <span class="mui-tab-label">牵走</span>
+        </a>
+        <a class="mui-tab-item">
+            <span class="mui-icon mui-icon-chat"></span>
+            <span class="mui-tab-label">客服</span>
+        </a>
+        <a class="mui-tab-item">
+            <span class="mui-icon mui-icon-star"></span>
+            <span class="mui-tab-label">收藏</span>
+        </a>
+        <a class="mui-tab-item olis" style="background: #5da2a8;">
+				加入购物车
+			</a>
+        <a class="mui-tab-item olis" style="background: #c52b05;">
+				立即购买
+			</a>
+    </nav>
+</body>
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+<script src="js/mui.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+mui.init({
+    subpages: [{
+        url: 'list_details.html',
+        id: 'list_details.html',
+        styles: {
+            top: '44px',    //mui标题栏默认高度为45px；
+            bottom: '50px'  //默认为0px，可不定义；
+        }
+    }]
+});
+
+$(".olis").eq(0).on("tap",function(){
+
+    if (sessionStorage.login) {
+        // 父页面调用同域下iframe子页面里的函数：window.iframe_name.function();无效？！
+        // 这里click无效？？改成tap就可以了？？为什么,购物车列表的删除那里用click都可以...要看实测.
+        // alert("haha ");
+        window["list_details.html"].clickShopcarFn();
+
+    }else{
+        window.location.href = "register_js.html";
+    }
+    
+});
+
+</script>
+
+</html>

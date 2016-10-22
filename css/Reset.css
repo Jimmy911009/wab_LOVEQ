@@ -1,0 +1,78 @@
+/* ----------------------------------------------------------
+ * 本文件定义了各元素的默认样式,请在各自html中引入该文件,
+ * 以保证默认样式的统一.
+ * 请各位确认有无需要修改 或 添加的条目.
+--------------------------------------------------------- */
+
+/*---- 基本样式重置 ----*/
+body,h1,h2,h3,h4,p,dl,dd,ul,ol,form,input,textarea,th,td,select{margin: 0;padding: 0;}
+em{font-style: normal;}
+li{list-style: none;}
+a{text-decoration: none;}
+a:link,
+a:visited,
+a:hover,
+a:active{color: inherit;}
+img{border: none;vertical-align: top;}
+table{border-collapse: collapse;}
+input,textarea{outline: none;border: 0}
+
+
+/*--- 手机端样式重置 ---*/
+html,body{
+	width: 100%;
+	height: 100%;
+
+	/*最大宽度*/
+	max-width: 720px;
+	margin: 0 auto;
+}
+
+/*-- 默认字体设置 --*/
+body{
+	font-size:12px;
+	font-family: "微软雅黑";
+
+	/*定位参照*/
+	position: relative;
+}
+
+
+
+/* ----------------------------------------------------------
+ * 下面部分定义了常用的样式设置类,
+ * 设置样式时可以直接在对应的元素中添加类名.
+ * 请各位确认有无需要修改 或 添加的条目.
+--------------------------------------------------------- */
+
+/*-- clearfix清除浮动万能方法 --*/
+.clearfix:after {
+    clear: both;
+    content: '';
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+.clearfix {zoom: 1;}
+
+
+/*-- 定宽块水平居中：左右margin设置auto --*/
+.marCenter{
+	margin-left: auto;
+	margin-right: auto
+}
+
+/*-- 左右浮动 --*/
+.fl{float: left;}
+.fr{float: right;}
+
+/*-- posCenter定位居中 --*/
+.posCenter{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+}

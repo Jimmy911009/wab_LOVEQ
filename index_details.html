@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/topBtn.css">
+    <!-- 弹框样式表 -->
+    <link rel="stylesheet" href="css/noteBox.css">
+    <title>详情页</title>
+    <style type="text/css">
+    header .mui-title a {
+        color: inherit;
+        display: inline-block;
+        width: 25%;
+    }
+    
+    #onav .olis {
+        width: 2%;
+        color: white;
+    }
+    </style>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <div class="ns-box">
+            <div class="ns-box-inner">
+                <p>成功加入购物车</p>
+            </div>
+        </div>
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="#offCanvasSide" id="close"></a>
+        <h1 class="mui-title">
+                <a href="###">商品</a>
+                <a href="###">详情</a>
+                <a href="###">评论</a>
+            </h1>
+        <a class="mui-icon mui-action-menu iconfont icon-gouwuche mui-pull-right" href="#offCanvasSide" style="color: gray;"></a>
+    </header>
+    <nav class="mui-bar mui-bar-tab" id="onav">
+        <a class="mui-tab-item">
+            <span class="mui-icon" style="color: red;font-size: 15px;padding: 0;font-weight: bold;margin: 0;">￥0</span>
+            <span class="mui-tab-label">牵走</span>
+        </a>
+        <a class="mui-tab-item">
+            <span class="mui-icon mui-icon-chat"></span>
+            <span class="mui-tab-label">客服</span>
+        </a>
+        <a class="mui-tab-item">
+            <span class="mui-icon mui-icon-star"></span>
+            <span class="mui-tab-label">收藏</span>
+        </a>
+        <a class="mui-tab-item olis" style="background: #5da2a8;">加入购物车</a>
+        <a class="mui-tab-item olis" style="background: #c52b05;">立即购买</a>
+    </nav>
+    <!-- 不能用embed src,否则就跟iframe内嵌页面一样,点击它相当于点击到了内嵌页面 -->
+    <!-- 改为使用背景图的方式引入矢量图,OK! -->
+    <div id="topBtn">TOP</div>
+</body>
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+<script src="js/mui.min.js"></script>
+<script type="text/javascript" src="js/conmondFunction.js"></script>
+<script type="text/javascript" charset="utf-8">
+// ========================================================================
+//初始化内嵌页面
+mInitFn("list/list_details.html", '44px', '50px');
+
+// ========================================================================
+// 点击此页面的购物车,调用内嵌页面的购物车函数、或者跳转到登陆页面
+$(".olis").eq(0).on("tap", function() {
+    if (sessionStorage.login) {
+        window["subpage"].clickShopcarFn();
+    } else {
+        window.location.href = "index_register.html";
+    }
+});
+
+
+// ===================TEST=============================
+// 将返回顶部按钮放到父页面上,子页面根据情况调用.
+function showBackFn() {
+    $("#topBtn").fadeIn(300);
+}
+
+function hideBackFn() {
+    $("#topBtn").fadeOut(300);
+}
+
+$("#topBtn").on("click",function(){
+    window.subpage.toTopFn(10);
+});
+</script>
+
+</html>

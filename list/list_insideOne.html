@@ -1,0 +1,270 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="../css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/Reset.css">
+    <!-- 返回顶部按钮样式表 -->
+    <link rel="stylesheet" href="../css/topBtn.css">
+    <style type="text/css">
+        .oheader {
+            width: 100%;
+        }
+        
+        .ocontent {
+            width: 90%;
+            margin: 0 auto;
+            /*---由于内嵌页面初始化的bottom在手机实测中无效,所以直接把距离增加到这里---*/
+            padding-bottom: 60px;
+        }
+        
+        .ocontent section {
+            width: 100%;
+            overflow: hidden;
+            border-bottom: 0.5px solid gainsboro;
+            padding: 3% 0;
+        }
+        
+        .ocontent section div {
+            float: left;
+        }
+        
+        .ocontent section div:nth-of-type(1) {
+            width: 35%;
+        }
+        
+        .ocontent section div:nth-of-type(2) {
+            width: 55%;
+            margin-left: 6%;
+        }
+        
+        .ocontent section div p {
+            font-size: 18px;
+            color: #716464;
+            margin: 5% 0 2% 0;
+            padding: 0;
+        }
+        
+        .ocontent section div span {
+            font-size: 13px;
+            color: #64646d;
+        }
+        
+        img {
+            width: 100%;
+        }
+
+        #topBtn{
+            bottom: 55px;
+        }
+    </style>
+</head>
+<body>
+    <div class="oheader">
+        <img src="../image/HUGOchoose2.jpg" />
+    </div>
+    <div class="ocontent">
+        <section>
+            <a href="../index_details.html" target="_parent">
+                <div><img src="../image/red_wine_1.jpg" alt="" /></div>
+                <div class="mui-collapse-content">
+                    <p>法国王子红葡萄酒</p>
+                    <span class="oprice">¥8.00</span>
+                </div>
+            </a>
+        </section>
+        <section>
+            <a href="../index_details.html" target="_parent">
+                <div><img src="../image/red_wine_1.jpg" alt="" /></div>
+                <div class="mui-collapse-content">
+                    <p>法国王子红葡萄酒</p>
+                    <span class="oprice">¥16.00</span>
+                </div>
+            </a>
+        </section>
+        <section>
+            <a href="../index_details.html" target="_parent">
+                <div><img src="../image/red_wine_1.jpg" alt="" /></div>
+                <div class="mui-collapse-content">
+                    <p>法国王子红葡萄酒</p>
+                    <span class="oprice">¥15.00</span>
+                </div>
+            </a>
+        </section>
+        <section>
+            <a href="../index_details.html" target="_parent">
+                <div><img src="../image/red_wine_1.jpg" alt="" /></div>
+                <div class="mui-collapse-content">
+                    <p>法国王子红葡萄酒</p>
+                    <span class="oprice">¥1.00</span>
+                </div>
+            </a>
+        </section>
+        <section>
+            <a href="../index_details.html" target="_parent">
+                <div><img src="../image/red_wine_1.jpg" alt="" /></div>
+                <div class="mui-collapse-content">
+                    <p>法国王子红葡萄酒</p>
+                    <span class="oprice">¥12.00</span>
+                </div>
+            </a>
+        </section>
+        <section>
+            <a href="../index_details.html" target="_parent">
+                <div><img src="../image/red_wine_1.jpg" alt="" /></div>
+                <div class="mui-collapse-content">
+                    <p>法国王子红葡萄酒</p>
+                    <span class="oprice">¥3.00</span>
+                </div>
+            </a>
+        </section>
+        <section>
+            <a href="../index_details.html" target="_parent">
+                <div><img src="../image/red_wine_1.jpg" alt="" /></div>
+                <div class="mui-collapse-content">
+                    <p>法国王子红葡萄酒</p>
+                    <span class="oprice">¥4.00</span>
+                </div>
+            </a>
+        </section>
+    </div>
+    <div id="topBtn">TOP</div>
+</body>
+<script src="../js/jquery-3.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/mui.min.js"></script>
+<script type="text/javascript" src="../js/conmondFunction.js"></script>
+<script type="text/javascript">
+// 每个子页面一进来时,需要将返回顶部按钮隐藏
+// 因为有可能上一页跳过来时,返回顶部按钮是显示的.
+window.parent.$("#topBtn").hide();
+
+// ==============TEST===================
+// 读取子页面href函数(各导航首页的地址,二级以后的页面地址不需要读取)
+// subhrefFn();
+// ==============TEST===================
+// 子页面跳转函数,供父页面调用
+function subSwiftFn(url){
+    window.location.href = url;
+}
+
+// ==============TEST===================
+// 页面加载后,调用父页面出现返回按的函数.
+window.onload = function(){
+    parent.hideLogoFn();
+}
+
+// ===================TEST============================
+// ios端为什么不加这部分,主页面也可以显隐返回顶部按钮？？
+// iframe页面scroll事件
+// $(parent.window).scroll(function(e) {
+//     if ($(window.parent.document).scrollTop() > 300) {
+//         parent.showBackFn();
+//     } else {
+//         parent.hideBackFn();
+//     }
+// })
+
+// ==============TEST===================
+// ios端iframe页面的返回顶部函数,供父页面调用
+// function toTopFn(){
+//     $(window.parent.document).scrollTop(0);
+//     // PC端演示时的返回顶部函数
+//     $(document).scrollTop(0);
+// }
+
+
+// 兼容PC端的scroll事件
+$(window).scroll(function(e) {
+    if ($(document).scrollTop() > 300) {
+        parent.showBackFn();
+    } else {
+        parent.hideBackFn();
+    }
+});
+
+// 添加滚动.times为回到顶部所用的时间参数
+function toTopFn(times) {
+    var topval = $(window.parent.document).scrollTop() || $(document).scrollTop();
+    var speed = topval/times;
+    (function moveFn() {
+        topval -= speed;
+        if (topval < 0) {
+            $(window.parent.document).scrollTop(0);
+            // 兼容PC端的返回顶部函数
+            $(document).scrollTop(0);
+            return false;
+        } else {
+            $(window.parent.document).scrollTop(topval);
+            // 兼容PC端的返回顶部函数
+            $(document).scrollTop(topval);
+            window.requestAnimationFrame(moveFn);
+        }
+    })();
+}
+// ==============TEST===================
+// 点击返回本导航栏的首页！
+function clickBackFn(){
+    window.location.href = sessionStorage.subhref;
+}
+// =====================================
+
+
+// =====================================
+// 按价格排序部分
+var priceReg = /[¥]/;
+var priceArr = [];
+
+// 先获取dom对象.
+function getPriceObjectFn() {
+    $("section").each(function(i) {
+        var olisJson = {
+            "oCount": i,
+            "oLis": $("section").eq(i),
+            "oMoney": Number($(".oprice").eq(i).html().replace(priceReg, ""))
+        }
+        priceArr[i] = olisJson;
+    })
+}
+// 获取所有目标li元素集
+getPriceObjectFn();
+
+// 将价格从高到低排序
+function priceUpToDownFn() {
+    for (var i = 0; i < priceArr.length; i++) {
+        for (var j = 0; j < priceArr.length - i - 1; j++) {
+            if (priceArr[j].oMoney < priceArr[j + 1].oMoney) {
+                var temp = priceArr[j];
+                priceArr[j] = priceArr[j + 1];
+                priceArr[j + 1] = temp;
+            }
+        }
+    }
+    $(priceArr).each(function(i) {
+        $(".ocontent").eq(0).append(priceArr[i].oLis);
+    });
+}
+
+$(".oheader").on("tap", function() {
+    $(".ocontent").eq(0).html("");
+    getPriceObjectFn();
+    priceUpToDownFn();
+})
+
+
+// 返回顶部部件.
+// toTopFn();
+// showHideFn();
+
+</script>
+
+</html>
+<!-- 
+注意一个小问题：
+在服务器中,页面改动后,可能会不生效,因为被chrome中的缓存覆盖了,这时候需要清一下缓存才有作用！！
+
+妈蛋,之前在这个页面改的东西怎么都出不来效果！
+
+ -->

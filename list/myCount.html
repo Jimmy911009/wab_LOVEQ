@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>我的账户</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="../css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/Reset.css">
+    <style type="text/css">
+        .mui-content {
+            width: 100%;
+            height: 100%;
+            background: white;
+        }
+        
+        img {
+            width: 100%;
+        }
+        
+        .mui-content>p {
+            width: 100%;
+            text-align: center;
+            padding: 2% 0;
+        }
+        
+        .oheader {
+            width: 90%;
+            background: #e6e6e6;
+            background-size: 100%;
+            margin: 0 auto;
+            padding-top: 10%;
+            position: relative;
+            border-radius: 5px;
+        }
+        
+        .oheader .oicon {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 5%;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .oheader .oicon div {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            margin: 0 auto;
+            border: 2px solid white;
+            overflow: hidden;
+        }
+        
+        .oheader .otalkshow {
+            width: 90%;
+            margin: 0 auto;
+            padding-top: 10%;
+            padding-bottom: 10%;
+        }
+        
+        .oheader ul {
+            width: 92%;
+            margin: 0 auto;
+            list-style: none;
+            overflow: hidden;
+            position: absolute;
+            bottom: 7%;
+        }
+        
+        .oheader ul li {
+            width: 32.33%;
+            display: inline-block;
+            text-align: center;
+            background: white;
+        }
+        
+        .oheader ul li p {
+            margin: 3% 0;
+        }
+        
+        @media only screen and (min-width: 600px) {
+            .oheader .otalkshow {
+                padding-bottom: 5%;
+            }
+            .mui-content p {
+                font-size: 20px;
+            }
+            .oheader .oicon p {
+                font-size: 20px;
+                margin-top: 2%;
+            }
+            .oheader ul li p {
+                font-size: 20px;
+                padding: 4% 0;
+            }
+            .oheader .oicon div {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        
+        .ocontent {
+            width: 100%;
+            font-size: 15px;
+        }
+        
+        .ocontent ul {
+            width: 85%;
+            margin: 0 auto;
+        }
+        
+        .ocontent ul li {
+            padding: 2% 0;
+            color: gray;
+        }
+        
+        .olis {
+            border-bottom: 1px solid gainsboro;
+        }
+
+        .ocontent p>a{
+        	display: block;
+        	width: 90%;
+            text-align: center;
+            border-bottom: 3px solid gainsboro;
+            border-top: 3px solid gainsboro;
+            margin: 0 auto;
+            padding: 3% 0;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mui-content">
+        <p>我的账户</p>
+        <div class="oheader">
+            <section class="oicon">
+                <div>
+                    <input type="file" name="" id="file" value="" accept="image/*" style="display: none;" />
+                    <img src="../image/logo.jpg" alt="" id="upload" />
+                </div>
+                <p id="username"></p>
+            </section>
+            <div class="otalkshow">
+                <img src="../image/hugoazhi.png" />
+                <ul>
+                    <li>
+                        <p>￥0.00</p>
+                        <p>余额</p>
+                    </li>
+                    <li>
+                        <p>0个,￥0.00</p>
+                        <p>红包</p>
+                    </li>
+                    <li>
+                        <p>0</p>
+                        <p>金蕉</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="ocontent">
+            <ul>
+                <li class="olis">
+                    <span class="mui-icon mui-icon-locked"></span>
+                    <span>我的订单</span>
+                    <span class="mui-icon mui-icon-arrowright mui-pull-right"></span>
+                </li>
+                <li class="olis">
+                    <span class="mui-icon mui-icon-map"></span>
+                    <span>收货地址</span>
+                    <span class="mui-icon mui-icon-arrowright mui-pull-right"></span>
+                </li>
+                <li class="olis">
+                    <span class="mui-icon mui-icon-star"></span>
+                    <span>联系客服</span>
+                    <span class="mui-icon mui-icon-arrowright mui-pull-right"></span>
+                </li>
+                <li>
+                    <span class="mui-icon mui-icon-info"></span>
+                    <span>意见反馈</span>
+                    <span class="mui-icon mui-icon-arrowright mui-pull-right"></span>
+                </li>
+            </ul>
+            <p><a href="../index.html" target="_parent" id="logout">退出</a></p>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../js/jquery-3.1.0.min.js"></script>
+<script src="../js/mui.min.js"></script>
+<script type="text/javascript" src="../js/conmondFunction.js"></script>
+<script type="text/javascript">
+// 每个子页面一进来时,需要将返回顶部按钮隐藏
+// 因为有可能上一页跳过来时,返回顶部按钮是显示的.
+window.parent.$("#topBtn").hide();
+
+// ==============TEST===================
+// 读取子页面href函数
+subhrefFn(3);
+
+// ==============TEST===================
+// 子页面跳转函数
+function subSwiftFn(url){
+    window.location.href = url;
+}
+
+// ==============TEST===================
+// 页面加载后,调用父页面函数,使父页面出现主logo.
+window.onload = function(){
+    parent.showLogoFn();
+}
+
+// =====================================
+// 文件上传组件
+// =====================================
+// input元素
+var file = document.getElementById("file");
+// img元素
+var upload = document.getElementById("upload");
+
+// 1.input:type=file可以上传文件.
+// 2.模拟点击到input:type=file
+upload.onclick = function() {
+    file.click();
+}
+// 上传头像函数.
+file.onchange = function() {
+    // ？？？这是什么
+    var files = this.files;
+    // ？？？window.URL || window.webkitURL;
+    var url = window.URL || window.webkitURL;
+    if (url) {
+        var src = url.createObjectURL(files[0]);
+        // console.log(files[0]);
+        // console.log(src);
+        upload.src = src;
+    }
+}
+// =====================================
+
+// 读取用户名信息
+$("#username").html(sessionStorage.username);
+
+// 点击退出后,清除登陆状态及所有该客户的购物数据
+$("#logout").on("tap",function(){
+	sessionStorage.clear();
+});
+</script>
+
+</html>

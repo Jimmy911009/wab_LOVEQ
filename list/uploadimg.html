@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文件上传</title>
+	<style type="text/css">	
+		#picBox img {
+			width:100px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<form action="" method="post">
+		<input type="file" accept="image/*" name="file" id="file" multiple>
+		<!-- 当选择多张图片时input标签添加 multiple -->
+	</form>
+	<div id="picBox"></div>
+	<div id="tips"></div>
+	<script type="text/javascript">
+	var file = document.getElementById("file");
+	// var tips = document.getElementById("tips");
+	var picBox = document.getElementById("picBox");
+
+	//显示上传图片的信息
+	file.onchange = function() {
+		var files = this.files;
+		// for(var i = 0; i < files.length; i++) {
+		// 	tips.innerHTML += "文件名：" + files[i].name + "<br>" + "文件类型：" + files[i].type + "<br>";
+		// }
+		//显示上传图片的缩略图
+		var url = window.URL || window.webkitURL;
+		picBox.innerHTML = "";
+		if(url) {
+			var src = url.createObjectURL(files[0]);
+			var img = new Image();
+			img.src = src;
+			picBox.appendChild(img);
+		}
+	}
+
+	
+
+	</script>
+</body>
+</html>

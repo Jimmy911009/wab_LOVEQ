@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>些事,些情</title>
+    <link href="css/mui.min.css" rel="stylesheet" />
+    <link href="fonts/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/topBtn.css">
+    <link rel="stylesheet" type="text/css" href="css/noteBox.css">
+    <style type="text/css">
+    /*-----General reset：限制最大宽度-------*/
+    
+    header,
+    nav,
+    .mui-content,
+    .mui-iframe-wrapper {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+    /*------其他部分通用样式--------*/
+    
+    header {
+        position: relative;
+    }
+    /*底部导航样式*/
+    
+    nav>a {
+        color: #929292;
+        box-sizing: border-box;
+        background-color: #343434;
+    }
+    /*背景色重置*/
+    
+    nav>a.mui-active {
+        background-color: black;
+        border-bottom: 4px solid red;
+    }
+    /*激发态颜色重置*/
+    
+    nav>a.mui-active>span {
+        color: white;
+    }
+    /*---------------------------*/
+    /*主页面Logo*/
+    
+    #logo {
+        position: absolute;
+        top: 15%;
+        left: 2.5%;
+        width: 32px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: none;
+    }
+    /*img-width:100%可以考虑放到通用样式reset中去*/
+    
+    #logo img {
+        width: 100%;
+    }
+    /* 返回键样式重置  */
+    
+    #back {
+        position: absolute;
+        display: none;
+    }
+    /*搜索条*/
+    
+    .mui-search {
+        width: 75%;
+        margin: 2px auto 0 12%;
+    }
+    </style>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <!-- 让所有的提示在Index显示才行,因为iframe页面不支持fixed -->
+        <div class="ns-box">
+            <div class="ns-box-inner">
+                <p>修改成功</p>
+            </div>
+        </div>
+        <a href="index.html" id="logo"><img src="image/logo.jpg" class="mui-pull-left" /></a>
+        <!-- 隐藏的返回按钮,仅样式,不能加mui-action-back类,否则主页也会被返回. -->
+        <a class="mui-icon mui-icon-left-nav mui-pull-left" id="back"></a>
+        <a class="mui-icon mui-action-menu mui-icon-bars mui-pull-right" href="#offCanvasSide"></a>
+        <div class="mui-input-row mui-search">
+            <input type="search" class="mui-input-clear" placeholder="输入你想要找的宝贝……">
+        </div>
+    </header>
+    <!--底部导航栏-->
+    <nav class="mui-bar mui-bar-tab">
+        <a class="mui-tab-item" href="#tabbar">
+            <span class="mui-icon iconfont">&#xe602;</span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item" href="#tabbar-with-chat">
+            <!--<span class="mui-badge">9</span>可以显示小红点数字提示-->
+            <span class="mui-icon iconfont">&#xe603;</span>
+            <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-tab-item" href="#tabbar-with-contact">
+            <span class="mui-icon iconfont">&#xe601;<span class="mui-badge" id="shopNum">0</span></span>
+            <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-tab-item" href="#tabbar-with-map">
+            <span class="mui-icon iconfont">&#xe600;</span>
+            <span class="mui-tab-label">我</span>
+        </a>
+    </nav>
+    <div id="topBtn">TOP</div>
+</body>
+<script src="js/jquery-3.1.0.min.js"></script>
+<script src="js/mui.min.js"></script>
+<script type="text/javascript" src="js/conmondFunction.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+<script type="text/javascript" charset="utf-8">
+// =========================TEST===========================================
+// 引入fastclick解决点透问题-OK
+new FastClick(document.body);
+
+
+// =========================TEST===========================================
+// 初始化内嵌页面(当存在sessionStorage时则跳转到指定页面)
+var url = sessionStorage.subhref || "list/list_index2.html";
+mInitFn(url, '44px', '10px');
+
+// =========================TEST===========================================
+// 初始化导航栏激活状态(当存在sessionStorage时则激活到指定导航栏)
+var activeIndex = sessionStorage.activeIndex || 0;
+$("nav>a").eq(activeIndex).addClass("mui-active").siblings().removeClass("mui-active");
+
+// ========================TEST============================================
+// 绑定导航栏跳转操作事件
+swiftFn();
+
+// ========================================================================
+// 购物车商品数量小图标同步(需要在有框架的页面中设置)
+shopcarNumFn();
+
+
+// ========================================================================
+// storage监听事件:当storage有变动时,重新执行shopcarNum函数
+if (window.addEventListener) {
+    window.addEventListener("storage", shopcarNumFn, false);
+} else if (window.attachEvent) {
+    window.attachEvent("onstorage", shopcarNumFn);
+}
+// ==============================================================
+
+// ===============================TEST===============================
+// 导航栏激发状态改变
+
+
+// ===============================TEST===============================
+// logo与返回按键之间的切换
+function showLogoFn() {
+    $("#back").stop().fadeOut(100, function() {
+        $(this).prev().fadeIn(100);
+    });
+}
+
+function hideLogoFn() {
+    $("#logo").stop().fadeOut(100, function() {
+        $(this).next().fadeIn(100);
+    });
+}
+
+// ===============================TEST===============================
+// 点击主页面,子页面实现返回
+$("#back").on("click", function() {
+    window["subpage"].clickBackFn();
+});
+
+
+// 获取iframe元素的函数,供子页面调用(useless)
+// function getIframeFn() {
+//     var oiframe = document.getElementById("subpage");
+//     // console.log(oiframe);
+// }
+
+// 父、子页面直接可以调用函数这个有很多灵活的运用)
+// ===================TEST=============================
+// 将返回顶部按钮放到父页面上,子页面根据情况调用.
+function showBackFn() {
+    $("#topBtn").fadeIn(300);
+}
+
+function hideBackFn() {
+    $("#topBtn").fadeOut(300);
+}
+
+$("#topBtn").on("click",function(){
+    window.subpage.toTopFn(10);
+});
+</script>
+
+</html>
