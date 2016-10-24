@@ -19,7 +19,7 @@ function mInitFn(ourl, otop, obottom) {
 // ==========================TEST===================================================
 // 绑定导航栏跳转操作事件
 function swiftFn() {
-    var urls = ["list/list_index2.html", "list/list_classify.html", "list/list_shoppingcar.html", "list/myCount.html"]
+    var urls = ["list/list_index.html", "list/list_classify.html", "list/list_shoppingcar.html", "list/myCount.html"]
     $("nav>a").on("tap", function() {
         // 判断当前页面是否为按下的按钮所指向的页面,是就不跳转.
         if (sessionStorage.subhref.indexOf(urls[$(this).index()]) > -1) {
