@@ -150,10 +150,10 @@ function isEmail(str) {
     return reg.test(str);
 }
 
-// var windowsH = window.screen.availHeight;
+var windowsH =  window.screen.availHeight;
 window.onresize = function () {
-    // console.log(windowsH);
-    $("body").css("height","100%");
+    console.log(windowsH);
+    $("body").css("height",windowsH);
 };
 </script>
 
