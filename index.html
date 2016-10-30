@@ -1,200 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Wab loveq by Jimmy911009</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Wab loveq</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/Jimmy911009/wab_LOVEQ" class="btn">View on GitHub</a>
+      <a href="https://github.com/Jimmy911009/wab_LOVEQ/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Jimmy911009/wab_LOVEQ/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title>些事,些情</title>
-    <link href="css/mui.min.css" rel="stylesheet" />
-    <link href="fonts/iconfont.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="css/topBtn.css">
-    <link rel="stylesheet" type="text/css" href="css/noteBox.css">
-    <style type="text/css">
-    /*-----General reset：限制最大宽度-------*/
-    
-    header,
-    nav,
-    .mui-content,
-    .mui-iframe-wrapper {
-        max-width: 720px;
-        margin: 0 auto;
-    }
-    /*------其他部分通用样式--------*/
-    
-    header {
-        position: relative;
-    }
-    /*底部导航样式*/
-    
-    nav>a {
-        color: #929292;
-        box-sizing: border-box;
-        background-color: #343434;
-    }
-    /*背景色重置*/
-    
-    nav>a.mui-active {
-        background-color: black;
-        border-bottom: 4px solid red;
-    }
-    /*激发态颜色重置*/
-    
-    nav>a.mui-active>span {
-        color: white;
-    }
-    /*---------------------------*/
-    /*主页面Logo*/
-    
-    #logo {
-        position: absolute;
-        top: 15%;
-        left: 2.5%;
-        width: 32px;
-        border-radius: 50%;
-        overflow: hidden;
-        display: none;
-    }
-    /*img-width:100%可以考虑放到通用样式reset中去*/
-    
-    #logo img {
-        width: 100%;
-    }
-    /* 返回键样式重置  */
-    
-    #back {
-        position: absolute;
-        display: none;
-    }
-    /*搜索条*/
-    
-    .mui-search {
-        width: 75%;
-        margin: 2px auto 0 12%;
-    }
-    </style>
-</head>
+    <section class="main-content">
+      <h3>
+<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
 
-<body>
-    <header class="mui-bar mui-bar-nav">
-        <!-- 让所有的提示在Index显示才行,因为iframe页面不支持fixed -->
-        <div class="ns-box">
-            <div class="ns-box-inner">
-                <p>修改成功</p>
-            </div>
-        </div>
-        <a href="index.html" id="logo"><img src="image/logo.jpg" class="mui-pull-left" /></a>
-        <!-- 隐藏的返回按钮,仅样式,不能加mui-action-back类,否则主页也会被返回. -->
-        <a class="mui-icon mui-icon-left-nav mui-pull-left" id="back"></a>
-        <a class="mui-icon mui-action-menu mui-icon-bars mui-pull-right" href="#offCanvasSide"></a>
-        <div class="mui-input-row mui-search">
-            <input type="search" class="mui-input-clear" placeholder="输入你想要找的宝贝……">
-        </div>
-    </header>
-    <!--底部导航栏-->
-    <nav class="mui-bar mui-bar-tab">
-        <a class="mui-tab-item" href="#tabbar">
-            <span class="mui-icon iconfont">&#xe602;</span>
-            <span class="mui-tab-label">首页</span>
-        </a>
-        <a class="mui-tab-item" href="#tabbar-with-chat">
-            <!--<span class="mui-badge">9</span>可以显示小红点数字提示-->
-            <span class="mui-icon iconfont">&#xe603;</span>
-            <span class="mui-tab-label">分类</span>
-        </a>
-        <a class="mui-tab-item" href="#tabbar-with-contact">
-            <span class="mui-icon iconfont">&#xe601;<span class="mui-badge" id="shopNum">0</span></span>
-            <span class="mui-tab-label">购物车</span>
-        </a>
-        <a class="mui-tab-item" href="#tabbar-with-map">
-            <span class="mui-icon iconfont">&#xe600;</span>
-            <span class="mui-tab-label">我</span>
-        </a>
-    </nav>
-    <div id="topBtn">TOP</div>
-</body>
-<script src="js/jquery-3.1.0.min.js"></script>
-<script src="js/mui.min.js"></script>
-<script type="text/javascript" src="js/conmondFunction.js"></script>
-<script type="text/javascript" src="js/fastclick.js"></script>
-<script type="text/javascript" charset="utf-8">
-// =========================TEST===========================================
-// 引入fastclick解决点透问题-OK
-new FastClick(document.body);
+<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
 
+<h3>
+<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Designer Templates</h3>
 
-// =========================TEST===========================================
-// 初始化内嵌页面(当存在sessionStorage时则跳转到指定页面)
-var url = sessionStorage.subhref || "list/demo_index.html";
-mInitFn(url, '44px', '10px');
+<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
 
-// =========================TEST===========================================
-// 初始化导航栏激活状态(当存在sessionStorage时则激活到指定导航栏)
-var activeIndex = sessionStorage.activeIndex || 0;
-$("nav>a").eq(activeIndex).addClass("mui-active").siblings().removeClass("mui-active");
+<h3>
+<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
 
-// ========================TEST============================================
-// 绑定导航栏跳转操作事件
-swiftFn();
+<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
 
-// ========================================================================
-// 购物车商品数量小图标同步(需要在有框架的页面中设置)
-shopcarNumFn();
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
+<p>You can @mention a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
 
-// ========================================================================
-// storage监听事件:当storage有变动时,重新执行shopcarNum函数
-if (window.addEventListener) {
-    window.addEventListener("storage", shopcarNumFn, false);
-} else if (window.attachEvent) {
-    window.attachEvent("onstorage", shopcarNumFn);
-}
-// ==============================================================
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
 
-// ===============================TEST===============================
-// 导航栏激发状态改变
+<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
 
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/Jimmy911009/wab_LOVEQ">Wab loveq</a> is maintained by <a href="https://github.com/Jimmy911009">Jimmy911009</a>.</span>
 
-// ===============================TEST===============================
-// logo与返回按键之间的切换
-function showLogoFn() {
-    $("#back").stop().fadeOut(100, function() {
-        $(this).prev().fadeIn(100);
-    });
-}
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
 
-function hideLogoFn() {
-    $("#logo").stop().fadeOut(100, function() {
-        $(this).next().fadeIn(100);
-    });
-}
+    </section>
 
-// ===============================TEST===============================
-// 点击主页面,子页面实现返回
-$("#back").on("click", function() {
-    window["subpage"].clickBackFn();
-});
-
-
-// 获取iframe元素的函数,供子页面调用(useless)
-// function getIframeFn() {
-//     var oiframe = document.getElementById("subpage");
-//     // console.log(oiframe);
-// }
-
-// 父、子页面直接可以调用函数这个有很多灵活的运用)
-// ===================TEST=============================
-// 将返回顶部按钮放到父页面上,子页面根据情况调用.
-function showBackFn() {
-    $("#topBtn").fadeIn(300);
-}
-
-function hideBackFn() {
-    $("#topBtn").fadeOut(300);
-}
-
-$("#topBtn").on("click",function(){
-    window.subpage.toTopFn(10);
-});
-</script>
-
+  
+  </body>
 </html>
