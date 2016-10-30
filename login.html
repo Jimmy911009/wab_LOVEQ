@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/noteBox.css">
 </head>
 
-<body>
+<body style="height: 600px">
     <div id="wrap">
         <div id="enter_top">
             <a href="index_register.html" class="enter_delete ">
@@ -152,8 +152,8 @@ function isEmail(str) {
 
 var windowsH =  window.screen.availHeight;
 window.onresize = function () {
-    console.log(windowsH);
-    $("body").css("height",windowsH);
+    // console.log(windowsH);
+    $("body").css("height","100%");
 };
 </script>
 
