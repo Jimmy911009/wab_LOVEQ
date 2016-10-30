@@ -149,6 +149,12 @@ function isEmail(str) {
     var reg = /^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/;
     return reg.test(str);
 }
+
+// var windowsH = window.screen.availHeight;
+window.onresize = function () {
+    // console.log(windowsH);
+    $("body").css("height","100%");
+};
 </script>
 
 </html>

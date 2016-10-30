@@ -22,12 +22,20 @@
         </div>
         <div id="enter_conten">
             <form action="" method="">
-                <input type="text" class="name" placeholder="请输入用户名">
-                <input type="password" class="password" placeholder="请输入密码">
+                <div style="width: 100%;height:10%">
+                    <input type="text" class="name" placeholder="请输入用户名" style="height: 100%">
+                    <div class="name_img" style="margin-top: 12%;top: 0"></div>
+                </div>
+               
+                <div style="position: relative; width: 100%;height: 100%;top: 10%">
+                    <input type="password" class="password" placeholder="请输入密码">
+                    <div class="password_img" style="margin-top: 12%;top: 0"></div>
+                </div>
+                
                 <a href="###" class="remable">忘记密码?</a>
                 <input type="button" value="登录" class="btn">
-                <div class="name_img"></div>
-                <div class="password_img"></div>
+                
+                
             </form>
         </div>
         <div class="ns-box">
@@ -73,6 +81,13 @@ inputa[2].onclick = function() {
         showNoteBoxFn();
     }
 }
+
+//获取浏览器的高度
+var windowsH =  window.screen.availHeight;
+window.onresize = function () {
+    console.log(windowsH);
+    $("body").css("height","100%");
+};
 </script>
 
 </html>
