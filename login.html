@@ -151,9 +151,10 @@ function isEmail(str) {
 }
 
 var windowsH =  window.screen.availHeight;
+// var htmlH = $(window).height();
 window.onresize = function () {
-    // console.log(windowsH);
-    $("body").css("height","100%");
+    // console.log(htmlH);
+    $("body").css("height",windowsH);
 };
 </script>
 
