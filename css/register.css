@@ -1,3 +1,6 @@
+/*html,body{
+    font-size: 100px;
+}*/
 #wrap{
 	width: 100%;
 	height: 100%;
@@ -40,7 +43,7 @@
 }
 #enter_conten input{
 	width: 100%;
-    height: 10%;
+    height: 50px;
     border: 1px solid gray;
     border-radius: 3%/20%;
     margin-top: 11%;
@@ -50,11 +53,9 @@
 
 }
 .remable{
-	font-size: 18px;
-    /* text-align: right; */
-    position: absolute;
-    right: 0;
-    top: 42%;
+	font-size:18px;
+    margin-top: 30px;
+    display: block;
 }
 #enter_conten .btn{
     margin-top: 18%;
@@ -64,20 +65,20 @@
 }
 .name_img{
     width: 9%;
-    height: 10%;
+    height: 50px;
     background: url("../css/svg/用户.svg") 0% 0% no-repeat;
     background-size: 100%;
     position: absolute;
-    top: 10.5%;
+    top: 50px;
     left: 1%;
 }
 .password_img{
 	width: 10%;
-    height: 10%;
+    height: 50px;
     background: url("../css/svg/密码.svg") 0% 0% no-repeat;
     background-size: 100%;
     position: absolute;
-    top: 28%;
+    top: 50px;
     left: 0%;
 }
 a.login_in {
@@ -91,7 +92,7 @@ a.login_in {
         color: #F1EBEB;
     } 
     #enter_conten input {
-        font-size: 25px;
+        font-size: 35px;
     }  
 }
 
